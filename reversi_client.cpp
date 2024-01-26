@@ -94,7 +94,6 @@ int main(int argc, char** argv)
         {
           break;
         }
-        sleep(1);
       }
       else if(strcmp(command, "SIDE") == 0)
       {

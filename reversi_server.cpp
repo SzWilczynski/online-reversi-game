@@ -30,7 +30,7 @@ void * socketThread(void *arg)
 
   free(arg);
 
-  printf("Starting match#%d\n", matchNumber);
+  printf("Starting match #%d\n", matchNumber);
 
   ReversiBoard board = ReversiBoard();
 
@@ -92,7 +92,6 @@ void * socketThread(void *arg)
       else if(strcmp(command, "MOV") == 0)
       {
         char* move = currentPlayer->buffer;
-        puts(move);
         int xPos = (int)(move[1]-'0');
         int yPos = (int)(move[2]-'0');
         if(board.MakeMove(currentSide, xPos-1, yPos-1))
@@ -145,7 +144,7 @@ void * socketThread(void *arg)
   }
   else
   {
-    strcat(endMessage, "\nA DRAW?");
+    strcat(endMessage, "\nA TIE.");
   }
   strcat(endMessage, "[MSG]");
 
@@ -159,7 +158,7 @@ void * socketThread(void *arg)
   delete otherPlayer;
 
   printf("Ending match #%d\n", matchNumber);
-  return NULL;
+  pthread_exit(NULL);
 }
 
 int main(int argc, char** argv){

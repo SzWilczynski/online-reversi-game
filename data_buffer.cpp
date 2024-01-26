@@ -78,10 +78,9 @@ DataBuffer::DataBuffer(int inSocket, int bufferSize)
     bufferSpaceLeft = bufferSize-1;
     bufferCap = buffer+bufferSize-1;
     memset(buffer, '\0', bufferSize);
-}
+};
 
 DataBuffer::~DataBuffer()
 {
     free(buffer);
-}
-;
+};
